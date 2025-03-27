@@ -1,0 +1,39 @@
+.featurebox{
+  background-color: #7FC7D9;
+  height: 500px;
+  width: 97vw;
+  position: relative;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: background-color 0.3s ease-in, transform 0.3s ease-in;
+}
+
+.heading{
+  font-family: 'Poppins';
+  font-weight: bolder;
+  font-stretch: wider;
+}
+
+.boxes{
+  height: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.box{
+  height: 100%;
+  width: 20%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: 'Poppins';
+}
+
+img{
+  height: 180px;
+  width: 180px;
+}

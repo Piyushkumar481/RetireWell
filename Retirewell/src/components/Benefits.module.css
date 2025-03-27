@@ -1,0 +1,85 @@
+.benefits {
+  width: 1280px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: white;
+  font-family: 'Poppins';
+}
+
+.leftContent {
+  width: 20%;
+  text-align: left;
+  max-width: 40%;
+}
+
+.leftContent h2 {
+  font-size: 28px;
+  color: #0F1035;
+}
+
+.leftContent p {
+  font-size: 18px;
+  color: #0F1035;
+}
+
+.benefitsBubbles {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-evenly;
+  justify-content: center;
+  rotate: -10deg;
+  position: relative;
+  justify-self: flex-end;
+}
+
+.bubble {
+  rotate: 10deg;
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 50%;
+  background: #0F1035;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bubble:hover {
+  transform: scale(1.1);
+}
+
+.bubble h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bubble p {
+  font-size: 14px;
+}
+
+button{
+  height: 60px;
+  width: 180px;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  background-color: #0F1035;
+  transition: background-color 0.3s ease-in, transform 0.3s ease-in;
+}
+
+button:hover{
+  transform: scale(1.1);
+  background-color: white;
+  color: #0F1035;
+  border: 2px solid #0F1035;
+}

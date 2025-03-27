@@ -1,0 +1,71 @@
+.header{
+  height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #0F1035;
+}
+
+.welltext{
+  color: #7FC7D9;
+}
+
+button{
+  height: 60px;
+  width: 180px;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  background-color: #0F1035;
+  transition: background-color 0.3s ease-in, transform 0.3s ease-in;
+}
+
+button:hover{
+  transform: scale(1.1);
+  background-color: white;
+  color: #0F1035;
+  border: 2px solid #0F1035;
+}
+
+.container{
+  background-color: #DCF2F1;
+  background-blend-mode: overlay;
+  position: relative;
+  justify-self: center;
+  height: 600px;
+  width: 1380px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.left{
+  height: 90%;
+  width: 40%;
+  background-image: url("../assets/Intro.svg");
+  background-size: cover;
+}
+
+.right{
+  width: 60%;
+  border-top: 2px solid #0F1035;
+  border-right: 2px solid #0F1035;
+  border-top-right-radius: 10px;
+  padding: 40px;
+}
+
+.box{
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins';
+  color: #0F1035;
+}
+
