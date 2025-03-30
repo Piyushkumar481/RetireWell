@@ -1,0 +1,109 @@
+.header{
+  position: relative;
+  height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #0F1035;
+}
+
+.welltext{
+  color: #7FC7D9;
+}
+
+.container {
+  position: relative;
+  max-width: 1000px;
+  margin: 10px;
+  padding: 20px;
+  background: #DCF2F1;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins';
+}
+
+h2 {
+  text-align: center;
+  color: #0F1035;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset {
+  width: 800px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #0F1035;
+  border-radius: 5px;
+}
+
+legend {
+  font-weight: bold;
+  color: #0F1035;
+}
+
+label {
+  display: block;
+  /* justify-self: center; */
+  margin-top: 8px;
+  margin-left: 0px;
+  font-size: 14px;
+  width: 98%;
+}
+
+input, select {
+  width: 98%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.checkboxes{
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.checkboxes label {
+  display: inline;
+  width: 250px;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.radiogroup {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.radiogroup label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 200px;
+}
+
+.submitBtn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submitBtn:hover {
+  background-color: #218838;
+}
