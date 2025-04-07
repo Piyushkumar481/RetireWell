@@ -1,31 +1,34 @@
-import { useState } from 'react'
-import './App.css'
-import Homepage from './components/Homepage'
-import Form from './components/Form'
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import BubblesBackground from './components/BubblesBackground';
-import LoginPage from "./components/LoginPage"
-import SignUpPage from './components/SignupPage';
+// App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import LoginPage from "./components/LoginPage";
+import SignUpPage from "./components/SignUpPage";
+import Form from "./components/Form";
+import Dashboard from "./components/Dashboard";
 
-
-function App() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, offset: 100 });
-  }, []);
-
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      {/* <BubblesBackground /> */}
-      <Homepage></Homepage>
-      {/* <Form /> */}
-      {/* <LoginPage /> */}
-    </>
-  )
-}
+    // <Router>
+      <div style={{
+        display: "flex",
+        justifySelf: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        width: "100vw",
+        margin: "0px", 
+        padding: "0px"
+      }}>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      </div>
+    // </Router>
+  );
+};
 
-export default App
+export default App;

@@ -1,5 +1,7 @@
 import styles from "./SignUpPage.module.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -11,6 +13,9 @@ function SignUpPage() {
     showTerms: false,
   });
 
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -21,15 +26,24 @@ function SignUpPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!formData.termsAndConditions) {
       alert("You must agree to the Terms & Conditions to proceed.");
       return;
     }
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match.");
       return;
     }
-    console.log("Form Data Submitted:", formData);
+
+    const result = signup(formData.email, formData.password, formData.fullName);
+
+    if (result.error) {
+      alert(result.error);
+    } else {
+      navigate("/form"); // move to form after sign up
+    }
   };
 
   return (

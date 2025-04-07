@@ -1,5 +1,7 @@
 import styles from "./LoginPage.module.css";
 import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext"; // Make sure the path is correct
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,9 @@ function LoginPage() {
     termsAndConditions: false,
     showTerms: false,
   });
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,32 +24,73 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
     if (!formData.termsAndConditions) {
       alert("You must agree to the Terms & Conditions to proceed.");
       return;
     }
-    console.log("Form Data Submitted:", formData);
+  
+    const result = login(formData.email, formData.password);
+  
+    if (result.error) {
+      alert(result.error); // show error to user
+      return;
+    }
+  
+    // Check if user has already filled out the form
+    const storedData = JSON.parse(localStorage.getItem("retireFormData")) || {};
+    const userForm = storedData[formData.email];
+  
+    if (userForm) {
+      navigate("/dashboard");
+    } else {
+      navigate("/form");
+    }
   };
-
+  
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2>🎉 Welcome to RetireWell! Plan your dream retirement today! 🎉</h2>
         <fieldset>
           <label>
-            Email: <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            Email: 
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              required 
+            />
           </label>
           <label>
-            Password: <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+            Password: 
+            <input 
+              type="password" 
+              name="password" 
+              value={formData.password} 
+              onChange={handleChange} 
+              required 
+            />
           </label>
           <div className={styles.checkboxContainer}>
-            <input type="checkbox" name="termsAndConditions" checked={formData.termsAndConditions} onChange={handleChange} />
+            <input 
+              type="checkbox" 
+              name="termsAndConditions" 
+              checked={formData.termsAndConditions} 
+              onChange={handleChange} 
+            />
             <span>I agree to the Terms & Conditions</span>
           </div>
           <button
             type="button"
             className={styles.termsButton}
-            onClick={() => setFormData((prev) => ({ ...prev, showTerms: !prev.showTerms }))}
+            onClick={() =>
+              setFormData((prev) => ({
+                ...prev,
+                showTerms: !prev.showTerms,
+              }))
+            }
           >
             {formData.showTerms ? "Hide Terms & Conditions" : "Read Terms & Conditions"}
           </button>

@@ -1,11 +1,17 @@
 import styles from './Benefits.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Benefits() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/signup');
+  };
   return (
     <section className={styles.benefits}>
       <div className={styles.leftContent}>
         <h2>Why Use This?</h2>
-        <button>Get started!</button>
+        <button onClick={handleGetStarted}>Get started!</button>
       </div>
 
       <div className={styles.benefitsBubbles}>
